@@ -1,5 +1,5 @@
-from . import player
-from .firing_location_error import FiringLocationError
+import player
+from firing_location_error import FiringLocationError
 
 
 class Move(object):

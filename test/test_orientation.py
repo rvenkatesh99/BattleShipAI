@@ -1,5 +1,5 @@
 import unittest
-from BattleShip.src.orientation import Orientation
+from orientation import Orientation
 
 
 class TestOrientation(unittest.TestCase):

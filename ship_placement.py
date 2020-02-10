@@ -1,4 +1,5 @@
-from . import ship, orientation
+import ship
+import orientation
 
 
 class ShipPlacement(object):

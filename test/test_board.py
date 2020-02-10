@@ -1,8 +1,8 @@
 import unittest
-import BattleShip.src.board as board
-import BattleShip.src.game_config as config
-import BattleShip.src.ship_placement as ship_placement
-import BattleShip.src.orientation as orientation
+import board as board
+import game_config as config
+import ship_placement as ship_placement
+import orientation as orientation
 
 
 class TestBoard(unittest.TestCase):

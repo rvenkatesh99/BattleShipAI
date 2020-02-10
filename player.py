@@ -1,7 +1,12 @@
 from typing import Dict, List
 import copy
-from . import game_config, board, ship, orientation, ship_placement, move
-from .firing_location_error import FiringLocationError
+import ship_placement
+import ship
+import orientation
+import move
+import game_config
+import board
+from firing_location_error import FiringLocationError
 
 
 class Player(object):

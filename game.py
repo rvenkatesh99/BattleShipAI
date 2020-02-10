@@ -1,5 +1,6 @@
 import itertools
-from . import game_config, player
+import player
+import game_config
 
 
 class Game(object):

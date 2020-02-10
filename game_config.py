@@ -1,5 +1,5 @@
 from typing import Dict
-from . import ship
+import ship
 
 
 class GameConfig(object):

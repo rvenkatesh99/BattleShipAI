@@ -1,6 +1,10 @@
 from typing import Set, List
-from . import ship_placement, orientation, game_config, cell, move
-from .cell import Cell
+import ship_placement
+import orientation
+import move
+import game_config
+import cell
+from cell import Cell
 
 
 class Board(object):
