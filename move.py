@@ -1,4 +1,4 @@
-import player
+from players import player
 from firing_location_error import FiringLocationError
 
 

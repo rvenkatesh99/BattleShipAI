@@ -1,4 +1,4 @@
-from typing import Set, List
+from typing import Set, List, Tuple
 import ship_placement
 import orientation
 import move

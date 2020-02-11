@@ -1,6 +1,10 @@
 import itertools
-import player
+from players import player
 import game_config
+from players.humanplayer import HumanPlayer
+from players.cheatingai import CheatingAI
+from players.searchdestroyai import SearchDestroyAI
+from players.randomai import RandomAI
 
 
 class Game(object):
@@ -15,6 +19,23 @@ class Game(object):
     def setup_players(self, num_players: int) -> None:
         for player_num in range(1, num_players + 1):
             self.players.append(player.Player(player_num, self.game_config, self.players))
+
+    def pick_player_type(self) -> Type:
+        possible_players = {
+            'human': HumanPlayer,
+            'cheating ai': CheatingAI,
+            'search destroy ai': SearchDestroyAI,
+            'random ai': RandomAI
+        }
+
+        while True:
+            picked_type = input(f'Pick one of {list(possible_players)} for your type: ').strip().lower()
+            for name, type in possible_players.items():
+                # B is a prefix of B if B startswith A
+                if name.startswith(picked_type):
+                    return type
+            else:
+                print(f'{picked_type} is not one of {list(possible_players)}')
 
     def play(self) -> None:
         active_player = self.players[0]
