@@ -1,6 +1,8 @@
 import itertools
+from typing import Optional, TypeVar, Type
 from players import player
 import game_config
+import random
 from players.humanplayer import HumanPlayer
 from players.cheatingai import CheatingAI
 from players.searchdestroyai import SearchDestroyAI
@@ -9,8 +11,9 @@ from players.randomai import RandomAI
 
 class Game(object):
 
-    def __init__(self, game_config_file: str, num_players: int = 2) -> None:
+    def __init__(self, game_config_file: str, seed: Optional[int], num_players: int = 2) -> None:
         super().__init__()
+        random.seed(seed)
         self.game_config = game_config.GameConfig(game_config_file)
         self.players = []
         self.player_turn = 0

@@ -8,8 +8,11 @@ import random
 
 
 class AIPlayer(Player):
-    def __init__(self, other_players: Iterable["Player"], blank_character: str) -> None:
+    def __init__(self, player_num: int, other_players: Iterable["Player"], blank_character: str) -> None:
         super().__init__(other_players, blank_character)
+
+    def init_name(self, player_num: int, other_players: List["Player"]) -> None:
+        ...
 
     def place_ship(self, ship_: Ship) -> None:
         while True:
