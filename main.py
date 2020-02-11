@@ -10,5 +10,5 @@ if __name__ == '__main__':
     else:
         if len(sys.argv) >= 3:
             seed = int(sys.argv[2])
-        game_of_battle_ship = game.Game(sys.argv[1]) #Create game
+        game_of_battle_ship = game.Game(sys.argv[1],seed) #Create game
         game_of_battle_ship.play() # Play it

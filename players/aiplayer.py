@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import Iterable, List
 from board import Board
 from move import Move
 from ship import Ship

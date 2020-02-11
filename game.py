@@ -1,6 +1,6 @@
 import itertools
 from typing import Optional, TypeVar, Type
-from players import player
+from players.player import Player
 import game_config
 import random
 from players.humanplayer import HumanPlayer
@@ -21,7 +21,8 @@ class Game(object):
 
     def setup_players(self, num_players: int) -> None:
         for player_num in range(1, num_players + 1):
-            self.players.append(player.Player(player_num, self.game_config, self.players))
+            player_type = self.pick_player_type()
+            self.players.append(player_type(Player(player_num, self.game_config, self.players)))
 
     def pick_player_type(self) -> Type:
         possible_players = {
@@ -48,7 +49,7 @@ class Game(object):
                 break
         print(f'{active_player} won the game!')
 
-    def do_current_players_turn(self, cur_player: player.Player) -> None:
+    def do_current_players_turn(self, cur_player: Player) -> None:
         self.display_gamestate(cur_player)
         while True:
             move = cur_player.get_move()
@@ -60,12 +61,12 @@ class Game(object):
     def num_players(self) -> int:
         return len(self.players)
 
-    def get_active_player(self) -> player.Player:
+    def get_active_player(self) -> Player:
         return self.players[self.player_turn]
 
     def game_is_over(self) -> bool:
         return any(player_.all_ships_sunk() for player_ in self.players)
 
-    def display_gamestate(self, cur_player: player.Player) -> None:
+    def display_gamestate(self, cur_player: Player) -> None:
         cur_player.display_scanning_boards()
         cur_player.display_firing_board()
