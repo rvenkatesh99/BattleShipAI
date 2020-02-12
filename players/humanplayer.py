@@ -6,7 +6,7 @@ import ship, orientation, move
 class HumanPlayer(Player):
 
     def __init__(self, player_num: int, other_players: List["Player"]) -> None:
-        super().__init__()
+        super().__init__(player_num, other_players)
 
     def init_name(self, player_num: int, other_players: List["Player"]) -> None:
         while True:

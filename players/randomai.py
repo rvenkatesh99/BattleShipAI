@@ -12,11 +12,10 @@ class RandomAI(AIPlayer):
         self.name = f"Random AI {player_num}".strip()
 
     def get_move(self) -> move.Move:
-        opponent = AIPlayer.opponents[0]
         ship_coords = []
-        for row in range(opponent.board.get_display(hidden=True).num_rows):
-            for col in range(opponent.board.get_display(hidden=True).num_cols):
-                if opponent.board.get_display(hidden=True)[row][col] == self.board.blank_char:
+        for row in range(self.board.get_display(hidden=True).num_rows):
+            for col in range(self.board.get_display(hidden=True).num_cols):
+                if self.board.get_display(hidden=True)[row][col] == self.board.blank_char:
                     ship_coords.append((row,col))
 
         coord = random.choice(ship_coords)

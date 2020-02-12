@@ -60,7 +60,7 @@ class Player(abc.ABC):
         ...
 
     @abc.abstractmethod
-    def get_start_coords(self, ship_: ship.Ship):
+    def get_start_coords(self, ship_: ship.Ship, orientation_: orientation.Orientation):
         ...
 
     def all_ships_sunk(self) -> bool:

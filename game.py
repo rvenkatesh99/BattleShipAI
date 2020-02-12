@@ -12,8 +12,8 @@ from players.randomai import RandomAI
 class Game(object):
 
     def __init__(self, game_config_file: str, seed: Optional[int], num_players: int = 2) -> None:
-        super().__init__()
         random.seed(seed)
+        super().__init__()
         self.game_config = game_config.GameConfig(game_config_file)
         self.players = []
         self.player_turn = 0
