@@ -22,7 +22,7 @@ class Game(object):
     def setup_players(self, num_players: int) -> None:
         for player_num in range(1, num_players + 1):
             player_type = self.pick_player_type(player_num)
-            self.players.append(player_type(Player(player_num, self.game_config, self.players)))
+            self.players.append(player_type(player_num, self.game_config, self.players))
 
     def pick_player_type(self, player_num) -> Type:
         possible_players = {
@@ -33,7 +33,8 @@ class Game(object):
         }
 
         while True:
-            picked_type = input(f"Enter one of {list(possible_players)} for Player {player_num}'s type: ").strip().lower()
+            picked_type = input(
+                f"Enter one of {list(possible_players)} for Player {player_num}'s type: ").strip().lower()
             for name, p_type in possible_players.items():
                 # B is a prefix of B if B startswith A
                 mod_name = name.lower()

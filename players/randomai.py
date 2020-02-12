@@ -13,17 +13,12 @@ class RandomAI(AIPlayer):
 
     def get_move(self) -> move.Move:
         opponent = AIPlayer.opponents[0]
-        ship_coords = ""
-        while True:
-            for row in range(opponent.board.num_rows):
-                row_choice = random.choice(row)
-                for col in range(opponent.board.num_cols):
-                    col_choice = random.choice(col)
+        ship_coords = []
+        for row in range(opponent.board.get_display(hidden=True).num_rows):
+            for col in range(opponent.board.get_display(hidden=True).num_cols):
+                if opponent.board.get_display(hidden=True)[row][col] == self.board.blank_char:
+                    ship_coords.append((row,col))
 
-                    ship_coords = f"{row_choice},{col_choice}"
-            try:
-                firing_location = move.Move.from_str(self, ship_coords)
-            except ValueError as e:
-                print(e)
-                continue
-            return firing_location
+        coord = random.choice(ship_coords)
+        ship_coords.remove(coord)
+        return move.Move(self, *coord)

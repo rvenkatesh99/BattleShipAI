@@ -5,8 +5,8 @@ import ship, orientation, move
 
 class HumanPlayer(Player):
 
-    def __init__(self, other_players: Iterable["Player"], blank_character: str) -> None:
-        super().__init__(other_players, blank_character)
+    def __init__(self, player_num: int, other_players: List["Player"]) -> None:
+        super().__init__()
 
     def init_name(self, player_num: int, other_players: List["Player"]) -> None:
         while True:
@@ -33,7 +33,7 @@ class HumanPlayer(Player):
             f'which is {ship_.length} long: ')
         return orientation.Orientation.from_string(orientation_)
 
-    def get_start_coords(self, ship_: ship.Ship):
+    def get_start_coords(self, ship_: ship.Ship, orientation_: orientation.Orientation):
 
         coords = input(f'{self.name}, enter the starting position for your {ship_.name} ship '
                        f',which is {ship_.length} long, in the form row, column: ')

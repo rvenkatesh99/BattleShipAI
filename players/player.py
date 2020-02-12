@@ -49,7 +49,7 @@ class Player(abc.ABC):
         while True:
             try:
                 orientation_ = self.get_orientation(ship_)
-                start_row, start_col = self.get_start_coords(ship_)
+                start_row, start_col = self.get_start_coords(ship_,orientation_)
             except ValueError as e:
                 print(e)
             else:
@@ -124,4 +124,3 @@ class Player(abc.ABC):
 
     def __str__(self) -> str:
         return self.name
-

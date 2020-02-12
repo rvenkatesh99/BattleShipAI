@@ -15,7 +15,7 @@ class CheatingAI(AIPlayer):
         opponent = AIPlayer.opponents[0]
         for row in range(opponent.board.num_rows):
             for col in range(opponent.board.num_cols):
-                if self[row][col] != self.board.blank_character and self[row][col] != 'X' and self[row][col] != 'O':
+                if opponent.board[row][col] != opponent.board.blank_character and opponent.board[row][col] != 'X':
                     ship_coords = f"{row},{col}"
                 try:
                     firing_location = Move.from_str(self, ship_coords)
