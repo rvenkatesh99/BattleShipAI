@@ -66,15 +66,9 @@ class Player(abc.ABC):
     def all_ships_sunk(self) -> bool:
         return all(ship_.health == 0 for ship_ in self.ships.values())
 
+    @abc.abstractmethod
     def get_move(self) -> move.Move:
-        while True:
-            coords = input(f'{self.name}, enter the location you want to fire at in the form row, column: ')
-            try:
-                firing_location = move.Move.from_str(self, coords)
-            except ValueError as e:
-                print(e)
-                continue
-            return firing_location
+        ...
 
     def fire_at(self, row: int, col: int) -> None:
         opponent = self.opponents[0]

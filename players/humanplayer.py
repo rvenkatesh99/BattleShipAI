@@ -1,6 +1,6 @@
 from typing import Iterable, List
 from players.player import Player
-import ship, ship_placement, orientation
+import ship, orientation, move
 
 
 class HumanPlayer(Player):
@@ -55,3 +55,13 @@ class HumanPlayer(Player):
                              f'It should be an integer between 0 and {self.board.num_cols - 1}')
 
         return row, col
+
+    def get_move(self) -> move.Move:
+        while True:
+            coords = input(f'{self.name}, enter the location you want to fire at in the form row, column: ')
+            try:
+                firing_location = move.Move.from_str(self, coords)
+            except ValueError as e:
+                print(e)
+                continue
+            return firing_location
