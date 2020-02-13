@@ -15,7 +15,7 @@ class RandomAI(AIPlayer):
                 self.ship_coords.append((row, col))
 
     def init_name(self, player_num: int, other_players: List["AIPlayer"]) -> None:
-        self.name = f"Random AI {player_num}".strip()
+        self.name = f"Random Ai {player_num}".strip()
 
     def get_move(self) -> move.Move:
         coord = random.choice(self.ship_coords)

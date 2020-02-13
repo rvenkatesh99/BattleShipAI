@@ -10,7 +10,7 @@ class CheatingAI(AIPlayer):
         ship_coords = []
 
     def init_name(self, player_num: int, other_players: List["AIPlayer"]) -> None:
-        self.name = f"Cheating AI {player_num}".strip()
+        self.name = f"Cheating Ai {player_num}".strip()
 
     def get_move(self) -> "Move":
         for row in range(self.opponents[0].board.num_rows):
